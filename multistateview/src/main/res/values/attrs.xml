@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MultiStateView">
+        <attr name="msv_indicatorName" format="string" />
+        <attr name="msv_indicatorColor" format="color" />
+        <attr name="msv_bgColor" format="color" />
+        <attr name="msv_textColor" format="color" />
+        <attr name="msv_tipError" format="string" />
+        <attr name="msv_tipNoNetwork" format="string" />
+        <attr name="msv_tipEmpty" format="string" />
+        <attr name="msv_imgError" format="reference|color" />
+        <attr name="msv_imgNoNetwork" format="reference|color" />
+        <attr name="msv_imgEmpty" format="reference|color" />
+    </declare-styleable>
+</resources>
