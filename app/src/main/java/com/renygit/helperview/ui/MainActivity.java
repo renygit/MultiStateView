@@ -8,6 +8,8 @@ import android.util.Log;
 
 import com.renygit.helperview.R;
 import com.renygit.helperview.databinding.ActivityMainBinding;
+import com.renygit.helperview.presenter.MainPresenter;
+import com.renygit.helperview.presenter.vm.MainViewModel;
 import com.renygit.multistateview.MultiStateView;
 
 import java.util.Random;
@@ -16,12 +18,25 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    int rand = 0;
+    private MainPresenter presenter;
+    private MainViewModel viewModel;
+
+    //int rand = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        presenter = new MainPresenter();
+        viewModel = new MainViewModel();
+
+        binding.setPresenter(presenter);
+        binding.setViewModel(viewModel);
+
+        presenter.setViewModel(viewModel);
+
+        binding.msv.showContent();
 
         binding.msv.setOnRetryListener(new MultiStateView.OnRetryListener() {
             @Override
@@ -30,7 +45,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        CountDownTimer cdt = new CountDownTimer(1000000, 5000) {
+        presenter.loadData(true);
+
+
+
+
+
+        /*CountDownTimer cdt = new CountDownTimer(1000000, 5000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 if(rand == 0){
@@ -55,6 +76,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        cdt.start();
+        cdt.start();*/
     }
 }

@@ -187,8 +187,8 @@ public class MultiStateView extends FrameLayout {
                     @Override
                     public void onClick(View v) {
                         if(null != onRetryListener){
-                            onRetryListener.onRetry();
                             showLoading();
+                            onRetryListener.onRetry();
                         }
                     }
                 });

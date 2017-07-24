@@ -11,7 +11,7 @@ import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreater;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 
 /**
  * Created by admin on 2017/7/21.
@@ -19,9 +19,17 @@ import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 
 public class App extends Application {
 
+    private static App instance;
+
+    public static Context getContext(){
+        return instance.getApplicationContext();
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        instance = this;
 
         MultiStateConfig.getInstance().setConfig(
                 new MultiStateConfig.Build()
@@ -38,7 +46,7 @@ public class App extends Application {
             @Override
             public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
                 //指定Header
-                return new MaterialHeader(context);
+                return new MaterialHeader(context).setColorSchemeColors(0xff000000);
             }
         });
         //设置全局的Footer构建器
@@ -46,7 +54,7 @@ public class App extends Application {
             @Override
             public RefreshFooter createRefreshFooter(Context context, RefreshLayout layout) {
                 //指定Footer
-                return new BallPulseFooter(context);
+                return new ClassicsFooter(context);
             }
         });
     }

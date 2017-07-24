@@ -2,6 +2,18 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.renygit.helperview.presenter.MainPresenter" />
+
+        <variable
+            name="viewModel"
+            type="com.renygit.helperview.presenter.vm.MainViewModel" />
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,13 +27,17 @@
             <com.scwang.smartrefresh.layout.SmartRefreshLayout
                 android:id="@+id/srl"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:presenter="@{presenter}">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:overScrollMode="never" />
+                    android:overScrollMode="never"
+                    app:adapter="@{viewModel.adapter}"
+                    app:layoutManager="@{null}"
+                    />
             </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
         </com.renygit.multistateview.MultiStateView>
