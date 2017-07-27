@@ -1,4 +1,16 @@
 # MultiStateView
+推荐一下我的一个库https://github.com/renygit/MVPLib （一个简单好用的框架，代码量很少，一会儿就看完了，belive me） 其中也用到了当前库，因为使用了databinding，所以有看不懂的请自行百度。
+
+引用
+===========================
+```Java
+maven { url "https://jitpack.io" }
+```
+```Java
+dependencies {
+	compile 'com.github.renygit:MultiStateView:0.0.2' //包含 compile 'com.wang.avi:library:2.1.3'//loading库
+}
+```
 
 使用
 ===========================
