@@ -19,12 +19,14 @@ dependencies {
      android:id="@+id/msv"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
-     app:msv_indicatorName="BallSpinFadeLoaderIndicator">
+     app:msv_indicatorName="BallSpinFadeLoaderIndicator"
+     app:msv_xxx="xxx"
+     app:msv_xxx="这里可以设置各种状态属性">
             <com.scwang.smartrefresh.layout.SmartRefreshLayout
                 android:id="@+id/srl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:presenter="@{presenter}">
+                app:presenter="@{presenter}">//（databinding:demo中如果这里看不懂，请跳过,可以不用设置这个）
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv"
@@ -49,7 +51,9 @@ MultiStateConfig.getInstance().setConfig(
             .setTipNoNetwork("没有网络，点击重试")
             .setIndicatorName("BallSpinFadeLoaderIndicator")
             .setIndicatorColor(R.color.colorAccent)
-        );
+	    .setImgError(R.mipmap.ic_error)
+	    .setxxx(其它属性)
+        );
 ```
  
 可以设置的全部属性
@@ -81,6 +85,23 @@ msv_imgNoNetwork: 如果发生网络错误时的提示图片 <br>
 msv_imgEmpty: 如果数据为空时的提示图片 <br>
 
 
+设置状态
+=================================
+```Java
+MultiStateView msv = (MultiStateView)findViewById(R.id.msv);
+msv.showLoading();
+msv.showError();
+msv.showNoNetwork();
+msv.showEmpty();
+msv.showContent();
+
+//也可以这样
+msv.showViewByStatus(MultiStateView.STATE_LOADING);
+msv.showViewByStatus(MultiStateView.STATE_ERROR);
+msv.showViewByStatus(MultiStateView.STATE_NO_NETWORK);
+msv.showViewByStatus(MultiStateView.STATE_EMPTY);
+msv.showViewByStatus(MultiStateView.STATE_CONTENT);
+ ```
 
 如果想java代码设置请自行修改源码，我没用到过，xml中没有设置局部属性，会自动使用全局属性，没有设置全局属性，会自动使用默认属性，所以，随便想怎么写都行。
  
