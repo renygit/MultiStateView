@@ -101,6 +101,17 @@ msv.showViewByStatus(MultiStateView.STATE_ERROR);
 msv.showViewByStatus(MultiStateView.STATE_NO_NETWORK);
 msv.showViewByStatus(MultiStateView.STATE_EMPTY);
 msv.showViewByStatus(MultiStateView.STATE_CONTENT);
+
+
+//点击重试  非loading状态都具备 点击全屏 重试
+msv.setOnRetryListener(new MultiStateView.OnRetryListener() {
+            @Override
+            public void onRetry() {
+                if(msv.getViewState() == MultiStateView.STATE_ERROR){//如果非loading状态点击都是一样的逻辑就不用判断了
+			doSomething();
+		}
+            }
+        });
  ```
 
 如果想java代码设置请自行修改源码，我没用到过，xml中没有设置局部属性，会自动使用全局属性，没有设置全局属性，会自动使用默认属性，所以，随便想怎么写都行。
