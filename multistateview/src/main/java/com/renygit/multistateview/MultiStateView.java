@@ -168,13 +168,22 @@ public class MultiStateView extends FrameLayout {
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View view = getChildAt(i);
-                view.setVisibility(R.id.ll_state == view.getId() ? View.GONE : View.VISIBLE);
+                if(view.equals(stateView) && stateView.getVisibility() == VISIBLE){
+                    view.setVisibility(GONE);
+                }else {
+                    view.setVisibility(R.id.ll_state == view.getId() ? View.GONE : View.VISIBLE);
+                }
             }
+
         }else {
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View view = getChildAt(i);
-                view.setVisibility(R.id.ll_state == view.getId() ? View.VISIBLE : View.GONE);
+                if(view.equals(stateView) && stateView.getVisibility() == GONE){
+                    view.setVisibility(VISIBLE);
+                }else {
+                    view.setVisibility(R.id.ll_state == view.getId() ? View.VISIBLE : View.GONE);
+                }
             }
 
             pb_loading.setVisibility(viewState == STATE_LOADING ? VISIBLE : GONE);
