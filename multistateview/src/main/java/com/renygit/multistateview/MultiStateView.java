@@ -133,6 +133,30 @@ public class MultiStateView extends FrameLayout {
         config.setConfig(build);
     }*/
 
+    public void setTipError(String tipError) {
+        this.tipError = tipError;
+    }
+
+    public void setTipNoNetwork(String tipNoNetwork) {
+        this.tipNoNetwork = tipNoNetwork;
+    }
+
+    public void setTipEmpty(String tipEmpty) {
+        this.tipEmpty = tipEmpty;
+    }
+
+    public void setImgError(Drawable imgError) {
+        this.imgError = imgError;
+    }
+
+    public void setImgNoNetwork(Drawable imgNoNetwork) {
+        this.imgNoNetwork = imgNoNetwork;
+    }
+
+    public void setImgEmpty(Drawable imgEmpty) {
+        this.imgEmpty = imgEmpty;
+    }
+
     public int getViewState() {
         return mViewState;
     }
